@@ -11,7 +11,7 @@ import com.example.avaliacao_002.model.Repository
 
 class RepositoriesAdapter : RecyclerView.Adapter<RepositoryViewHolder>() {
 
-    private val repositoriesList: List<Repository> = mutableListOf()
+    private var repositoriesList: MutableList<Repository> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepositoryViewHolder {
         val view =
@@ -26,6 +26,12 @@ class RepositoriesAdapter : RecyclerView.Adapter<RepositoryViewHolder>() {
     }
 
     override fun getItemCount(): Int = repositoriesList.size
+
+    fun update(newList: List<Repository>) {
+        repositoriesList = mutableListOf()
+        repositoriesList.addAll(newList)
+        notifyDataSetChanged()
+    }
 }
 
 class RepositoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -33,16 +39,16 @@ class RepositoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val binding: ItemRepositoryBinding = ItemRepositoryBinding.bind(itemView)
 
     fun bind(repository: Repository) {
-        repository.owner.let {
-            Glide.with(itemView.context).load(it.avatarURL)
-                .into(binding.repositoryOwnerAvatarImageView)
-        }
-
         repository.let {
             binding.repositoryTitleTextView.text = it.fullName
             binding.descriptionTextView.text = it.description
             binding.forkTextView.text = it.forksCount.toString()
             binding.starTextView.text = it.starsCount.toString()
+        }
+
+        repository.owner.let {
+            Glide.with(itemView.context).load(it.avatarURL)
+                .into(binding.repositoryOwnerAvatarImageView)
         }
     }
 
