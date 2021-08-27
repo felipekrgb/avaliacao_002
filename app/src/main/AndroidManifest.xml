@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Avaliacao_002">
         <activity
-            android:name=".MainActivity"
+            android:name=".RepositoriesActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -2,16 +2,16 @@ package com.example.avaliacao_002
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.avaliacao_002.view.MainFragment
+import com.example.avaliacao_002.view.RepositoriesFragment
 
-class MainActivity : AppCompatActivity() {
+class RepositoriesActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, MainFragment.newInstance())
+                .replace(R.id.container, RepositoriesFragment.newInstance())
                 .commitNow()
         }
     }
