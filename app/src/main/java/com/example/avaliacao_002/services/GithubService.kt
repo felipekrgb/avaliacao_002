@@ -11,7 +11,7 @@ interface GithubService {
     @GET("/search/repositories?q=language:Java&sort=stars&page=1")
     fun getRepositoriesList(): Call<RepositoryResponse>
 
-    @GET("https://api.github.com/repos/{fullName}/pulls")
-    fun getPullRequestsList(@Path("fullName") fullName: String): Call<List<PullRequest>>
+    @GET("/repos/{fullName}/pulls")
+    fun getPullRequestsList(@Path("fullName", encoded = true) fullName: String): Call<List<PullRequest>>
 
 }

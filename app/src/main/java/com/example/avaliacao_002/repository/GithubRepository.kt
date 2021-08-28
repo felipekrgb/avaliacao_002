@@ -36,6 +36,7 @@ class GithubRepository {
 
     fun getPullRequestsList(fullName: String, callback: (List<PullRequest>?, String?) -> Unit) {
         val call = service.getPullRequestsList(fullName)
+        println(fullName)
 
         call.enqueue(object : Callback<List<PullRequest>> {
             override fun onResponse(
@@ -43,13 +44,16 @@ class GithubRepository {
                 response: Response<List<PullRequest>>
             ) {
                 if (response.body() != null) {
+                    println("OnResponse")
                     callback(response.body()!!, null)
                 } else {
+                    println("OnResponse ERRO ${response.body()}")
                     callback(null, "Ocorreu um erro")
                 }
             }
 
             override fun onFailure(call: Call<List<PullRequest>>, t: Throwable) {
+                println("OnFailure")
                 callback(null, t.localizedMessage)
             }
 

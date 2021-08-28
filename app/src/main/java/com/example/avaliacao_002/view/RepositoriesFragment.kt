@@ -1,5 +1,6 @@
 package com.example.avaliacao_002.view
 
+import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +8,7 @@ import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.avaliacao_002.PullRequestsActivity
 import com.example.avaliacao_002.R
 import com.example.avaliacao_002.adapter.RepositoriesAdapter
 import com.example.avaliacao_002.databinding.RepositoriesFragmentBinding
@@ -18,7 +20,12 @@ class RepositoriesFragment : Fragment(R.layout.repositories_fragment) {
     private lateinit var binding: RepositoriesFragmentBinding
     private lateinit var viewModel: RepositoriesViewModel
     private lateinit var recyclerView: RecyclerView
-    private var adapter = RepositoriesAdapter()
+    private var adapter = RepositoriesAdapter() { repository ->
+        val intentToPullRequests =
+            Intent(activity?.applicationContext, PullRequestsActivity::class.java)
+        intentToPullRequests.putExtra("repository", repository)
+        startActivity(intentToPullRequests)
+    }
 
     companion object {
         fun newInstance() = RepositoriesFragment()

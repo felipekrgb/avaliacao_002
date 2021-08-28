@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.avaliacao_002.R
 import com.example.avaliacao_002.adapter.PullRequestAdapter
 import com.example.avaliacao_002.adapter.RepositoriesAdapter
@@ -47,6 +48,7 @@ class PullRequestsFragment : Fragment(R.layout.pull_requests_fragment) {
 
     private val pullRequestsObserver = Observer<List<PullRequest>> { pullRequestsList ->
         adapter.update(pullRequestsList)
+        binding.progressBar.visibility = View.GONE
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -62,6 +64,16 @@ class PullRequestsFragment : Fragment(R.layout.pull_requests_fragment) {
 
         viewModel.pullRequests.observe(viewLifecycleOwner, pullRequestsObserver)
         viewModel.getPullRequestsList(repository.fullName)
+
+        repository?.let {
+            binding.repositoryNameTextView.text = it.fullName
+            binding.repositoryDescriptionTextView.text = it.description
+        }
+
+        repository.owner?.let {
+            Glide.with(this).load(it.avatarURL)
+                .into(binding.repositoryOwnerAvatarImageView)
+        }
     }
 
 }

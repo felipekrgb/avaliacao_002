@@ -25,4 +25,4 @@ data class Repository(
 data class Owner(
     @SerializedName("avatar_url")
     val avatarURL: String
-)
+) : Serializable

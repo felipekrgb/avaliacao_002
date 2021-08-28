@@ -16,8 +16,8 @@ class PullRequestsViewModel : ViewModel() {
 
     private val githubRepository = GithubRepository()
 
-    fun getPullRequestsList(fullname: String) {
-        githubRepository.getPullRequestsList(fullname) { list, error ->
+    fun getPullRequestsList(fullName: String) {
+        githubRepository.getPullRequestsList(fullName) { list, error ->
             list?.apply {
                 _pullRequests.value = this
             }
