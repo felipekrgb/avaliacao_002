@@ -10,7 +10,9 @@ import com.example.avaliacao_002.databinding.ItemPullRequestBinding
 import com.example.avaliacao_002.model.PullRequest
 import com.example.avaliacao_002.model.Repository
 
-class PullRequestAdapter : RecyclerView.Adapter<PullRequestViewHolder>() {
+class PullRequestAdapter(
+    val onClick: (url: String) -> Unit
+) : RecyclerView.Adapter<PullRequestViewHolder>() {
 
     private var pullRequestsList: MutableList<PullRequest> = mutableListOf()
 
@@ -23,6 +25,9 @@ class PullRequestAdapter : RecyclerView.Adapter<PullRequestViewHolder>() {
     override fun onBindViewHolder(holder: PullRequestViewHolder, position: Int) {
         pullRequestsList[position].apply {
             holder.bind(this)
+            holder.itemView.setOnClickListener {
+                onClick(this.link)
+            }
         }
     }
 

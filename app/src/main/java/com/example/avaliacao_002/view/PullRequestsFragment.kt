@@ -1,6 +1,8 @@
 package com.example.avaliacao_002.view
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -26,7 +28,10 @@ class PullRequestsFragment : Fragment(R.layout.pull_requests_fragment) {
     private lateinit var repository: Repository
     private lateinit var recyclerView: RecyclerView
 
-    private var adapter = PullRequestAdapter()
+    private var adapter = PullRequestAdapter() {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(it))
+        startActivity(intent)
+    }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
