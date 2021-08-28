@@ -12,6 +12,9 @@ data class PullRequest(
 
     @SerializedName("created_at")
     val createdAt: String,
+
+    @SerializedName("html_url")
+    val link: String
 ) {
     fun formattedDate(): String {
         val dateWithoutHours = createdAt.split("T")[0].split("-")
