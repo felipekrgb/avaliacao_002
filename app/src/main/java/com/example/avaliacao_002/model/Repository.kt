@@ -1,6 +1,7 @@
 package com.example.avaliacao_002.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class RepositoryResponse(
     val items: List<Repository>
@@ -19,7 +20,7 @@ data class Repository(
 
     @SerializedName("forks_count")
     val forksCount: Int,
-)
+) : Serializable
 
 data class Owner(
     @SerializedName("avatar_url")

@@ -8,13 +8,15 @@ import com.bumptech.glide.Glide
 import com.example.avaliacao_002.R
 import com.example.avaliacao_002.databinding.ItemPullRequestBinding
 import com.example.avaliacao_002.model.PullRequest
+import com.example.avaliacao_002.model.Repository
 
 class PullRequestAdapter : RecyclerView.Adapter<PullRequestViewHolder>() {
 
     private var pullRequestsList: MutableList<PullRequest> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PullRequestViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_pull_request, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_pull_request, parent, false)
         return PullRequestViewHolder(view)
     }
 
@@ -25,6 +27,12 @@ class PullRequestAdapter : RecyclerView.Adapter<PullRequestViewHolder>() {
     }
 
     override fun getItemCount(): Int = pullRequestsList.size
+
+    fun update(newList: List<PullRequest>) {
+        pullRequestsList = mutableListOf()
+        pullRequestsList.addAll(newList)
+        notifyDataSetChanged()
+    }
 }
 
 class PullRequestViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

@@ -16,15 +16,13 @@ import com.example.avaliacao_002.view_model.RepositoriesViewModel
 class RepositoriesFragment : Fragment(R.layout.repositories_fragment) {
 
     private lateinit var binding: RepositoriesFragmentBinding
+    private lateinit var viewModel: RepositoriesViewModel
+    private lateinit var recyclerView: RecyclerView
+    private var adapter = RepositoriesAdapter()
 
     companion object {
         fun newInstance() = RepositoriesFragment()
     }
-
-    private lateinit var viewModel: RepositoriesViewModel
-
-    private lateinit var recyclerView: RecyclerView
-    private var adapter = RepositoriesAdapter()
 
     private val repositoriesObserver = Observer<List<Repository>> { repositoriesList ->
         adapter.update(repositoriesList)
