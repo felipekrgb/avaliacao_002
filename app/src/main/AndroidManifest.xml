@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Avaliacao_002">
         <activity
+            android:name=".PullRequestsActivity"
+            android:exported="true" />
+        <activity
             android:name=".RepositoriesActivity"
             android:exported="true">
             <intent-filter>

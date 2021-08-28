@@ -2,7 +2,7 @@ package com.example.avaliacao_002.model
 
 import com.google.gson.annotations.SerializedName
 
-data class GithubReponse(
+data class RepositoryResponse(
     val items: List<Repository>
 )
 
