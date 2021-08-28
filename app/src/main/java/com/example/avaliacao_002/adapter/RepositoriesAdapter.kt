@@ -9,7 +9,9 @@ import com.example.avaliacao_002.R
 import com.example.avaliacao_002.databinding.ItemRepositoryBinding
 import com.example.avaliacao_002.model.Repository
 
-class RepositoriesAdapter : RecyclerView.Adapter<RepositoryViewHolder>() {
+class RepositoriesAdapter(
+    val onClick: (repository: Repository) -> Unit
+) : RecyclerView.Adapter<RepositoryViewHolder>() {
 
     private var repositoriesList: MutableList<Repository> = mutableListOf()
 
@@ -22,6 +24,9 @@ class RepositoriesAdapter : RecyclerView.Adapter<RepositoryViewHolder>() {
     override fun onBindViewHolder(holder: RepositoryViewHolder, position: Int) {
         repositoriesList[position].apply {
             holder.bind(this)
+            holder.itemView.setOnClickListener {
+                onClick(this)
+            }
         }
     }
 
