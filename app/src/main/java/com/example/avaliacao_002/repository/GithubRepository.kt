@@ -12,8 +12,8 @@ class GithubRepository {
 
     private val service = RetrofitBuilder.getGithubServices()
 
-    fun getRepositoriesList(callback: (List<Repository>?, String?) -> Unit) {
-        val call = service.getRepositoriesList()
+    fun getRepositoriesList(language: String, callback: (List<Repository>?, String?) -> Unit) {
+        val call = service.getRepositoriesList("language:$language")
 
         call.enqueue(object : Callback<RepositoryResponse> {
             override fun onResponse(
