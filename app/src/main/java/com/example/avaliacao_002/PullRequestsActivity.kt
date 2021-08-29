@@ -19,6 +19,9 @@ class PullRequestsActivity : AppCompatActivity() {
         val repository = intent.getSerializableExtra("repository") as Repository
         println(repository)
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true);
+        supportActionBar?.title = repository.name
+
         supportFragmentManager.beginTransaction()
             .replace(R.id.container, PullRequestsFragment.newInstance(repository))
             .commitNow()

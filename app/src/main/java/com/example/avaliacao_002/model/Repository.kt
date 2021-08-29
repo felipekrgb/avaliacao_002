@@ -8,6 +8,8 @@ data class RepositoryResponse(
 )
 
 data class Repository(
+    val name: String,
+
     @SerializedName("full_name")
     val fullName: String,
 
