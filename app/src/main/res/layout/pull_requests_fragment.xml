@@ -11,6 +11,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="140dp"
+        app:cardElevation="0dp"
         android:layout_height="140dp"
         app:cardCornerRadius="70dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,20 +67,6 @@
         android:id="@+id/pullRequestsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view" />
-
-    <TextView
-        android:id="@+id/errorStarredRepositoriesTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Ocorreu um erro"
-        android:textAlignment="center"
-        android:textColor="#333"
-        android:textSize="28sp"
-        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -33,6 +33,7 @@ class RepositoriesFragment : Fragment(R.layout.repositories_fragment) {
 
     private val repositoriesObserver = Observer<List<Repository>> { repositoriesList ->
         adapter.update(repositoriesList)
+        binding.progressBar.visibility = View.GONE
     }
 
 
