@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="12dp">
+    android:layout_margin="8dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_margin="16dp"
         android:backgroundTint="#f5f5f5"
         app:cardCornerRadius="20dp"
         app:cardElevation="8dp"
@@ -25,10 +25,10 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/imageCardView"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_margin="6dp"
-                app:cardCornerRadius="50dp"
+                app:cardCornerRadius="40dp"
                 app:cardElevation="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -44,23 +44,86 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-               app:layout_constraintTop_toTopOf="parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:padding="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/imageCardView">
+                app:layout_constraintStart_toEndOf="@id/imageCardView"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
                     android:id="@+id/repositoryTitleTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
                     android:layout_marginBottom="8dp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:textSize="16sp"
+                    android:textColor="#333"
+                    android:textSize="14sp"
                     android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
                     tools:text="facebook/react" />
+
+                <TextView
+                    android:id="@+id/descriptionTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:maxLines="3"
+                    android:textColor="#666"
+                    android:textSize="11sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/repositoryTitleTextView"
+                    tools:text="A declarative, efficient, and flexible JavaScript library for building user interfaces." />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/descriptionTextView">
+
+                    <ImageView
+                        android:id="@+id/forkImageView"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_fork"
+                        app:tint="@color/orange" />
+
+                    <TextView
+                        android:id="@+id/forkTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:textColor="#333"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        tools:text="255" />
+
+                    <ImageView
+                        android:id="@+id/starImageView"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="16dp"
+                        android:backgroundTint="@color/orange"
+                        android:src="@drawable/ic_star"
+                        app:tint="@color/orange" />
+
+                    <TextView
+                        android:id="@+id/starTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:textColor="#333"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        tools:text="255" />
+
+                </LinearLayout>
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -71,75 +134,75 @@
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--<TextView-->
-<!--android:id="@+id/repositoryTitleTextView"-->
-<!--android:layout_width="wrap_content"-->
-<!--android:layout_height="wrap_content"-->
-<!--android:layout_marginStart="16dp"-->
-<!--android:layout_marginBottom="8dp"-->
-<!--android:textSize="16sp"-->
-<!--android:textStyle="bold"-->
-<!--app:layout_constraintBottom_toTopOf="@+id/descriptionTextView"-->
-<!--app:layout_constraintStart_toEndOf="@+id/cardView"-->
-<!--app:layout_constraintTop_toTopOf="@+id/cardView"-->
-<!--tools:text="facebook/react" />-->
+    <!--<TextView-->
+    <!--android:id="@+id/repositoryTitleTextView"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginStart="16dp"-->
+    <!--android:layout_marginBottom="8dp"-->
+    <!--android:textSize="16sp"-->
+    <!--android:textStyle="bold"-->
+    <!--app:layout_constraintBottom_toTopOf="@+id/descriptionTextView"-->
+    <!--app:layout_constraintStart_toEndOf="@+id/cardView"-->
+    <!--app:layout_constraintTop_toTopOf="@+id/cardView"-->
+    <!--tools:text="facebook/react" />-->
 
-<!--<TextView-->
-<!--android:id="@+id/descriptionTextView"-->
-<!--android:layout_width="0dp"-->
-<!--android:layout_height="wrap_content"-->
-<!--android:layout_marginStart="16dp"-->
-<!--android:maxLines="3"-->
-<!--android:textSize="12sp"-->
-<!--app:layout_constraintBottom_toBottomOf="@+id/cardView"-->
-<!--app:layout_constraintEnd_toEndOf="parent"-->
-<!--app:layout_constraintHorizontal_bias="0.0"-->
-<!--app:layout_constraintStart_toEndOf="@id/cardView"-->
-<!--app:layout_constraintTop_toTopOf="@+id/cardView"-->
-<!--tools:text="A declarative, efficient, and flexible JavaScript library for building user interfaces." />-->
+    <!--<TextView-->
+    <!--android:id="@+id/descriptionTextView"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginStart="16dp"-->
+    <!--android:maxLines="3"-->
+    <!--android:textSize="12sp"-->
+    <!--app:layout_constraintBottom_toBottomOf="@+id/cardView"-->
+    <!--app:layout_constraintEnd_toEndOf="parent"-->
+    <!--app:layout_constraintHorizontal_bias="0.0"-->
+    <!--app:layout_constraintStart_toEndOf="@id/cardView"-->
+    <!--app:layout_constraintTop_toTopOf="@+id/cardView"-->
+    <!--tools:text="A declarative, efficient, and flexible JavaScript library for building user interfaces." />-->
 
-<!--<ImageView-->
-<!--android:id="@+id/forkImageView"-->
-<!--android:layout_width="wrap_content"-->
-<!--android:layout_height="wrap_content"-->
-<!--android:layout_marginStart="16dp"-->
-<!--android:layout_marginTop="8dp"-->
-<!--android:src="@drawable/ic_fork"-->
-<!--app:layout_constraintBottom_toBottomOf="@+id/cardView"-->
-<!--app:layout_constraintStart_toEndOf="@+id/cardView"-->
-<!--app:layout_constraintTop_toBottomOf="@+id/descriptionTextView"-->
-<!--app:layout_goneMarginTop="12dp" />-->
+    <!--<ImageView-->
+    <!--android:id="@+id/forkImageView"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginStart="16dp"-->
+    <!--android:layout_marginTop="8dp"-->
+    <!--android:src="@drawable/ic_fork"-->
+    <!--app:layout_constraintBottom_toBottomOf="@+id/cardView"-->
+    <!--app:layout_constraintStart_toEndOf="@+id/cardView"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/descriptionTextView"-->
+    <!--app:layout_goneMarginTop="12dp" />-->
 
-<!--<TextView-->
-<!--android:id="@+id/forkTextView"-->
-<!--android:layout_width="wrap_content"-->
-<!--android:layout_height="wrap_content"-->
-<!--android:layout_marginStart="4dp"-->
-<!--android:textColor="@color/purple_200"-->
-<!--android:textSize="14sp"-->
-<!--app:layout_constraintBottom_toBottomOf="@+id/forkImageView"-->
-<!--app:layout_constraintStart_toEndOf="@+id/forkImageView"-->
-<!--app:layout_constraintTop_toTopOf="@+id/forkImageView"-->
-<!--tools:text="255" />-->
+    <!--<TextView-->
+    <!--android:id="@+id/forkTextView"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginStart="4dp"-->
+    <!--android:textColor="@color/purple_200"-->
+    <!--android:textSize="14sp"-->
+    <!--app:layout_constraintBottom_toBottomOf="@+id/forkImageView"-->
+    <!--app:layout_constraintStart_toEndOf="@+id/forkImageView"-->
+    <!--app:layout_constraintTop_toTopOf="@+id/forkImageView"-->
+    <!--tools:text="255" />-->
 
-<!--<ImageView-->
-<!--android:id="@+id/starImageView"-->
-<!--android:layout_width="wrap_content"-->
-<!--android:layout_height="wrap_content"-->
-<!--android:layout_marginStart="16dp"-->
-<!--android:src="@drawable/ic_star"-->
-<!--app:layout_constraintBottom_toBottomOf="@+id/forkTextView"-->
-<!--app:layout_constraintStart_toEndOf="@+id/forkTextView"-->
-<!--app:layout_constraintTop_toTopOf="@+id/forkTextView" />-->
+    <!--<ImageView-->
+    <!--android:id="@+id/starImageView"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginStart="16dp"-->
+    <!--android:src="@drawable/ic_star"-->
+    <!--app:layout_constraintBottom_toBottomOf="@+id/forkTextView"-->
+    <!--app:layout_constraintStart_toEndOf="@+id/forkTextView"-->
+    <!--app:layout_constraintTop_toTopOf="@+id/forkTextView" />-->
 
-<!--<TextView-->
-<!--android:id="@+id/starTextView"-->
-<!--android:layout_width="wrap_content"-->
-<!--android:layout_height="wrap_content"-->
-<!--android:layout_marginStart="4dp"-->
-<!--android:textColor="@color/purple_200"-->
-<!--android:textSize="14sp"-->
-<!--app:layout_constraintBottom_toBottomOf="@+id/starImageView"-->
-<!--app:layout_constraintStart_toEndOf="@+id/starImageView"-->
-<!--app:layout_constraintTop_toTopOf="@+id/starImageView"-->
-<!--tools:text="255" />-->
+    <!--<TextView-->
+    <!--android:id="@+id/starTextView"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginStart="4dp"-->
+    <!--android:textColor="@color/purple_200"-->
+    <!--android:textSize="14sp"-->
+    <!--app:layout_constraintBottom_toBottomOf="@+id/starImageView"-->
+    <!--app:layout_constraintStart_toEndOf="@+id/starImageView"-->
+    <!--app:layout_constraintTop_toTopOf="@+id/starImageView"-->
+    <!--tools:text="255" />-->

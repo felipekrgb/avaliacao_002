@@ -47,6 +47,9 @@ class PullRequestViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) 
     fun bind(pullRequest: PullRequest) {
         pullRequest.let {
             binding.pullRequestTitleTextView.text = it.title
+            binding.bodyTextView.text = it.body
+            binding.userTextView.text = it.user.username
+            binding.createdAtTextView.text = it.formattedDate()
         }
 
         pullRequest.user.let {

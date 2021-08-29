@@ -46,9 +46,9 @@ class RepositoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bind(repository: Repository) {
         repository.let {
             binding.repositoryTitleTextView.text = it.fullName
-//            binding.descriptionTextView.text = it.description
-//            binding.forkTextView.text = it.forksCount.toString()
-//            binding.starTextView.text = it.starsCount.toString()
+            binding.descriptionTextView.text = it.description
+            binding.forkTextView.text = it.forksCount.toString()
+            binding.starTextView.text = it.starsCount.toString()
         }
 
         repository.owner.let {

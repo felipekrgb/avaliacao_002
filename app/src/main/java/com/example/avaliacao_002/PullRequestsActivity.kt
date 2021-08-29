@@ -16,7 +16,6 @@ class PullRequestsActivity : AppCompatActivity() {
         binding = PullRequestsActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        println("ENNTROUUUUUUUU NO ACTIVITY DE PULLLL REQUEST")
         val repository = intent.getSerializableExtra("repository") as Repository
         println(repository)
 
