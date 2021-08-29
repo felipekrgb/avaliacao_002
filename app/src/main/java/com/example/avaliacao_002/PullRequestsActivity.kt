@@ -27,4 +27,9 @@ class PullRequestsActivity : AppCompatActivity() {
             .commitNow()
 
     }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return super.onSupportNavigateUp()
+    }
 }
